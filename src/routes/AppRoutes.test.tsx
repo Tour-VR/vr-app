@@ -31,6 +31,13 @@ describe('AppRoutes', () => {
     expect(fetchPublicPoint).toHaveBeenCalledWith('biblioteca');
   });
 
+  it('renderiza o leitor de QR em /scan', () => {
+    Object.defineProperty(window, 'isSecureContext', { value: false, configurable: true });
+    renderAt('/scan');
+
+    expect(screen.getByRole('heading', { name: 'Escanear QR Code' })).toBeInTheDocument();
+  });
+
   it('renderiza "Página não encontrada" em rota desconhecida', () => {
     renderAt('/rota-que-nao-existe');
 

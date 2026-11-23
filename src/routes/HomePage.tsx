@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { ApiStatusFooter } from '../core/components/ApiStatusFooter';
 import { ErrorState } from '../core/components/ErrorState';
 import { LoadingState } from '../core/components/LoadingState';
 import { PointCard } from '../core/components/PointCard';
+import { ROUTES } from '../core/constants/routes';
 import { usePublicPoints } from '../core/hooks/usePublicPoints';
 import type { PointSummary } from '../core/types';
 
@@ -32,6 +34,12 @@ export function HomePage() {
           <p className="text-gray-700">
             Escaneie o QR Code de um local ou escolha um ponto abaixo.
           </p>
+          <Link
+            to={ROUTES.scan}
+            className="mt-2 rounded-lg bg-blue-700 px-4 py-3 text-center text-lg font-semibold text-white"
+          >
+            Escanear QR Code
+          </Link>
         </header>
         {state.status === 'success' ? <PointList points={state.data} /> : null}
         {state.status === 'loading' ? <LoadingState /> : null}

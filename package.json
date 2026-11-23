@@ -16,6 +16,8 @@
     "gen:types": "node scripts/gen-types.mjs"
   },
   "dependencies": {
+    "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.3",
     "axios": "^1.13.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
