@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+
+/* Fundo claro explicito: sem ele, navegadores em tema escuro pintam o fundo de preto e o
+   texto escuro das paginas fica ilegivel. */
+@layer base {
+  body {
+    background-color: var(--color-white);
+  }
+}
