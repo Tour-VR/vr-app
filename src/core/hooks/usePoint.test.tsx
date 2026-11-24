@@ -7,7 +7,15 @@ import { usePoint } from './usePoint';
 vi.mock('../api/points');
 
 function point(slug: string): PointDetail {
-  return { slug, name: `Ponto ${slug}`, summary: 'Resumo', history: 'Historia', media: [] };
+  return {
+    slug,
+    name: `Ponto ${slug}`,
+    summary: 'Resumo',
+    history: 'Historia',
+    media: [],
+    panorama_url: null,
+    connections: [],
+  };
 }
 
 const notFound = new AxiosError('404', undefined, undefined, undefined, {

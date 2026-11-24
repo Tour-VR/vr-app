@@ -10,8 +10,14 @@ vi.mock('../core/api/health');
 vi.mock('../core/api/points');
 
 const POINTS: PointSummary[] = [
-  { slug: 'biblioteca', name: 'Biblioteca', summary: 'Livros', cover_url: '/media/capa.jpg' },
-  { slug: 'cantina', name: 'Cantina', summary: 'Lanches', cover_url: null },
+  {
+    slug: 'biblioteca',
+    name: 'Biblioteca',
+    summary: 'Livros',
+    cover_url: '/media/capa.jpg',
+    has_panorama: false,
+  },
+  { slug: 'cantina', name: 'Cantina', summary: 'Lanches', cover_url: null, has_panorama: true },
 ];
 
 function renderHome() {

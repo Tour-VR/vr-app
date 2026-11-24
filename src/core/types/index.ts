@@ -26,3 +26,6 @@ export type MediaItem = Schemas['MediaItemResponse'];
 
 /** Modo da visita registrada: presencial (AR) ou remota (VR). */
 export type VisitMode = Schemas['VisitCreate']['mode'];
+
+/** Seta da cena VR para um ponto vizinho publicado (plano 019). */
+export type PointConnection = Schemas['PointPublicConnection'];
