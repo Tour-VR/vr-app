@@ -16,6 +16,14 @@ function PointView({ point }: { point: PointDetail }) {
   return (
     <article className="flex flex-col gap-6">
       <PointHeader name={point.name} summary={point.summary} />
+      {point.panorama_url ? (
+        <Link
+          to={ROUTES.vrPoint(point.slug)}
+          className="rounded-lg border border-blue-700 px-4 py-3 text-center text-lg font-semibold text-blue-700"
+        >
+          Visita virtual 360°
+        </Link>
+      ) : null}
       <MediaGallery media={point.media} />
       <PointContent history={point.history} />
       <footer className="border-t border-gray-200 pt-4">

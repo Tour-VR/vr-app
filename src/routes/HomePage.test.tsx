@@ -40,6 +40,10 @@ describe('HomePage', () => {
     expect(screen.getByRole('heading', { name: 'TourVR · Tour do campus' })).toBeInTheDocument();
     expect(screen.getByText(/Escaneie o QR Code/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Escanear QR Code' })).toHaveAttribute('href', '/scan');
+    expect(screen.getByRole('link', { name: 'Visita virtual 360°' })).toHaveAttribute(
+      'href',
+      '/vr',
+    );
     expect(screen.getByRole('status')).toHaveTextContent('Carregando');
   });
 

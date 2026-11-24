@@ -6,6 +6,9 @@ import { AppRoutes } from './AppRoutes';
 
 vi.mock('../core/api/health');
 vi.mock('../core/api/points');
+vi.mock('../modes/vr/VrRoutes', () => ({
+  default: () => <h1>Modo VR carregado</h1>,
+}));
 
 function renderAt(path: string) {
   render(
@@ -36,6 +39,12 @@ describe('AppRoutes', () => {
     renderAt('/scan');
 
     expect(screen.getByRole('heading', { name: 'Escanear QR Code' })).toBeInTheDocument();
+  });
+
+  it('carrega o modo VR sob demanda em /vr, depois do Suspense', async () => {
+    renderAt('/vr');
+
+    expect(await screen.findByRole('heading', { name: 'Modo VR carregado' })).toBeInTheDocument();
   });
 
   it('renderiza "Página não encontrada" em rota desconhecida', () => {

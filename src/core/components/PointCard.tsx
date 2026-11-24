@@ -5,13 +5,15 @@ import type { PointSummary } from '../types';
 
 interface PointCardProps {
   point: PointSummary;
+  /** Destino do cartao; padrao `/p/<slug>` (modo AR). A lista `/vr` passa `/vr/<slug>`. */
+  to?: string;
 }
 
-/** Cartao da lista inicial: capa (ou bloco neutro), nome e resumo; leva a `/p/<slug>`. */
-export function PointCard({ point }: PointCardProps) {
+/** Cartao de ponto: capa (ou bloco neutro), nome e resumo; leva a `to`. */
+export function PointCard({ point, to = ROUTES.point(point.slug) }: PointCardProps) {
   return (
     <Link
-      to={ROUTES.point(point.slug)}
+      to={to}
       className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white hover:shadow-md"
     >
       {point.cover_url ? (
