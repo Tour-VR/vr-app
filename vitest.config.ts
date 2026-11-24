@@ -10,7 +10,14 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/main.tsx', 'src/core/types/**', '**/*.d.ts', 'src/test/**'],
+      exclude: [
+        'src/main.tsx',
+        'src/core/types/**',
+        '**/*.d.ts',
+        'src/test/**',
+        // cena 3D sem logica: coberta por E2E e teste manual (plano 020)
+        'src/modes/vr/scene/**',
+      ],
       thresholds: { lines: 80, functions: 80, branches: 80, statements: 80 },
     },
   },

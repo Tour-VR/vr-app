@@ -40,6 +40,12 @@ export function HomePage() {
           >
             Escanear QR Code
           </Link>
+          <Link
+            to={ROUTES.vr}
+            className="rounded-lg border border-blue-700 px-4 py-3 text-center text-lg font-semibold text-blue-700"
+          >
+            Visita virtual 360°
+          </Link>
         </header>
         {state.status === 'success' ? <PointList points={state.data} /> : null}
         {state.status === 'loading' ? <LoadingState /> : null}

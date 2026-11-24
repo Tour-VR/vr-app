@@ -58,6 +58,7 @@ describe('PointPage', () => {
     expect(fetchPublicPoint).toHaveBeenCalledWith('biblioteca');
     expect(registerVisit).toHaveBeenCalledExactlyOnceWith('biblioteca', 'ar');
     expect(document.title).toBe('Biblioteca Central · TourVR');
+    expect(screen.queryByRole('link', { name: 'Visita virtual 360°' })).not.toBeInTheDocument();
   });
 
   it('mostra a mensagem de ponto inexistente no 404', async () => {
@@ -82,5 +83,15 @@ describe('PointPage', () => {
     await userEvent.click(retry);
 
     expect(await screen.findByRole('heading', { name: 'Biblioteca Central' })).toBeInTheDocument();
+  });
+
+  it('mostra o link da visita 360 quando o ponto tem panorama', async () => {
+    vi.mocked(fetchPublicPoint).mockResolvedValue({ ...POINT, panorama_url: '/media/360.jpg' });
+    renderPage();
+
+    expect(await screen.findByRole('link', { name: 'Visita virtual 360°' })).toHaveAttribute(
+      'href',
+      '/vr/biblioteca',
+    );
   });
 });
