@@ -16,6 +16,8 @@ const POINT: PointDetail = {
   summary: 'Livros e estudo',
   history: 'Fundada em 1990.\n\nReformada em 2020.',
   media: [{ id: '1', kind: 'photo', url: '/media/a.jpg', caption: null, alt_text: 'Fachada' }],
+  panorama_url: null,
+  connections: [],
 };
 
 function renderPage() {

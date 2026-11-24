@@ -7,6 +7,7 @@ const SUMMARY: PointSummary = {
   name: 'Biblioteca',
   summary: 'Livros',
   cover_url: null,
+  has_panorama: false,
 };
 const DETAIL: PointDetail = {
   slug: 'biblioteca',
@@ -14,6 +15,8 @@ const DETAIL: PointDetail = {
   summary: 'Livros',
   history: 'Historia',
   media: [],
+  panorama_url: null,
+  connections: [],
 };
 
 describe('chamadas publicas de pontos', () => {
